@@ -9,7 +9,22 @@ Also you can read [documentation](docs).
 ## Installation
  
 You can get this extension through [Composer](https://getcomposer.org/download/).
- 
+
+Before install config composer repositories
+
+```
+ "repositories": {
+    "0": {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    },
+    "github": {
+      "type": "vcs",
+      "url": "https://github.com/GrazioX/yii2-swiper"
+    }
+  }
+```
+
 Either run in terminal
  
 ```Shell
