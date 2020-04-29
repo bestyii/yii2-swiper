@@ -16,10 +16,10 @@ Swiper позволяет делать галереи с эффектом пар
 
 ## Настройка параллакса
 
-Настройка параллакса произодится через поле `\romkaChev\yii2\swiper\Swiper::$parallaxOptions`, аналогично `\yii\helpers\BaseHtml::tag`
+Настройка параллакса произодится через поле `\bestyii\swiper\Swiper::$parallaxOptions`, аналогично `\yii\helpers\BaseHtml::tag`
 
 > Обратите внимание: чтобы параллакс заработал, 
-  необходимо указать `parallax = true` в поле `\romkaChev\yii2\swiper\Swiper::$pluginOptions`
+  необходимо указать `parallax = true` в поле `\bestyii\swiper\Swiper::$pluginOptions`
 
 Также для упрощения работы были введены следующие константы:
 
@@ -36,7 +36,7 @@ Swiper позволяет делать галереи с эффектом пар
 
 ```PHP
 <?php
-use romkaChev\yii2\swiper\Swiper;
+use bestyii\swiper\Swiper;
 use yii\helpers\Html;
 
 echo Swiper::widget( [

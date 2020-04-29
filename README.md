@@ -47,7 +47,7 @@ to the *require* section of your application's ```composer.json``` file.
 /**
  * @var \yii\web\View $this
  */
-use romkaChev\yii2\swiper\Swiper;
+use bestyii\swiper\Swiper;
 
 echo Swiper::widget( [
   'items'         => [

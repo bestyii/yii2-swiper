@@ -3,7 +3,7 @@
  * @var \yii\web\View $this
  */
 
-use romkaChev\yii2\swiper\Swiper;
+use bestyii\swiper\Swiper;
 
 $swiperId = "my-swiper-id";
 

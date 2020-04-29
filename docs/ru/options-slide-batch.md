@@ -18,7 +18,7 @@
 
 ```PHP
 <?php
-use romkaChev\yii2\swiper\Swiper;
+use bestyii\swiper\Swiper;
 
 echo Swiper::widget( [
   'items'       => [

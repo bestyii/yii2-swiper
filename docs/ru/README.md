@@ -1,7 +1,7 @@
 # Документация по yii2-swiper
 
 > В документации, при испозовании `Swiper` и `Slide` без пространств имен, подразумевается,
-  что указаны `\romkaChev\yii2\swiper\Swiper` и `\romkaChev\yii2\swiper\Slide` соответственно
+  что указаны `\bestyii\swiper\Swiper` и `\bestyii\swiper\Slide` соответственно
   
 #### [Обзор виджета](overview.md)
 

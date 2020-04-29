@@ -2,7 +2,7 @@
 /**
  * @var \yii\web\View $this
  */
-use romkaChev\yii2\swiper\Swiper;
+use bestyii\swiper\Swiper;
 
 $galleryTopId    = 'gallery-top';
 $galleryThumbsId = 'gallery-thumbs';

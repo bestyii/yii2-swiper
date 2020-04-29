@@ -1,8 +1,8 @@
 <?php
-namespace romkaChev\yii2\swiper;
+namespace bestyii\swiper;
 
-use romkaChev\yii2\swiper\assets\SwiperAsset;
-use romkaChev\yii2\swiper\helpers\SwiperCssHelper;
+use bestyii\swiper\assets\SwiperAsset;
+use bestyii\swiper\helpers\SwiperCssHelper;
 use yii\base\Widget;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -15,7 +15,7 @@ use yii\web\JsExpression;
  *
  * @link    http://www.idangero.us/swiper/
  *
- * @package romkaChev\yii2\swiper
+ * @package bestyii\swiper
  */
 class Swiper extends Widget
 {
@@ -23,24 +23,24 @@ class Swiper extends Widget
     /**
      * @var string[]|mixed[]|Slide[] Contains information about slides
      *                               If you want to add some items in runtime,
-     *                               you should use [[\romkaChev\yii2\swiper\Swiper::addItem]]
+     *                               you should use [[\bestyii\swiper\Swiper::addItem]]
      *                               instead of direct items pushing.
      *
-     * @see \romkaChev\yii2\swiper\Slide
-     * @see \romkaChev\yii2\swiper\Swiper::$itemOptions
-     * @see \romkaChev\yii2\swiper\Swiper::addItem
-     * @see \romkaChev\yii2\swiper\Swiper::renderItem
+     * @see \bestyii\swiper\Slide
+     * @see \bestyii\swiper\Swiper::$itemOptions
+     * @see \bestyii\swiper\Swiper::addItem
+     * @see \bestyii\swiper\Swiper::renderItem
      */
     public $items = [ ];
 
     /**
-     * @var mixed[] options, which first will be merged with [[\romkaChev\yii2\swiper\Slide::$options]]
+     * @var mixed[] options, which first will be merged with [[\bestyii\swiper\Slide::$options]]
      *              for each slide, and then applied in [[\yii\helpers\Html::tag]] for rendering.
      *
-     * @see \romkaChev\yii2\swiper\Swiper::normalizeOptions
-     * @see \romkaChev\yii2\swiper\Swiper::renderItem
+     * @see \bestyii\swiper\Swiper::normalizeOptions
+     * @see \bestyii\swiper\Swiper::renderItem
      *
-     * @see \romkaChev\yii2\swiper\Slide::$options
+     * @see \bestyii\swiper\Slide::$options
      */
     public $itemOptions = [ ];
 
@@ -49,14 +49,14 @@ class Swiper extends Widget
      *              If you pass the [[id]] property, it will replace auto-generated
      *              value with custom.
      *
-     * @see \romkaChev\yii2\swiper\Swiper::run
+     * @see \bestyii\swiper\Swiper::run
      */
     public $containerOptions = [ ];
 
     /**
      * @var mixed[] Options which will be applied in [[\yii\helpers\Html::tag]].
      *
-     * @see \romkaChev\yii2\swiper\Swiper::renderWrapper
+     * @see \bestyii\swiper\Swiper::renderWrapper
      */
     public $wrapperOptions = [ ];
 
@@ -65,7 +65,7 @@ class Swiper extends Widget
      *              which will be converted to JSON and
      *              applied in Swiper plugin construction
      *
-     * @see \romkaChev\yii2\swiper\Swiper::registerClientScript
+     * @see \bestyii\swiper\Swiper::registerClientScript
      */
     public $pluginOptions = [ ];
 
@@ -77,7 +77,7 @@ class Swiper extends Widget
      *               you should declare them here
      *
      *               ~~~
-     *               \romkaChev\yii2\swiper\Swiper::widget([
+     *               \bestyii\swiper\Swiper::widget([
      *                  'items'      => ['slide01', 'slide02'],
      *                  'behaviours' => [
      *                      'pagination',
@@ -88,19 +88,19 @@ class Swiper extends Widget
      *               ~~~
      *
      *               Also you can use named constants such as:
-     *               - [[\romkaChev\yii2\swiper\Swiper::BEHAVIOUR_PAGINATION]]
-     *               - [[\romkaChev\yii2\swiper\Swiper::BEHAVIOUR_SCROLLBAR]]
-     *               - [[\romkaChev\yii2\swiper\Swiper::BEHAVIOUR_NEXT_BUTTON]]
-     *               - [[\romkaChev\yii2\swiper\Swiper::BEHAVIOUR_PREV_BUTTON]]
-     *               - [[\romkaChev\yii2\swiper\Swiper::BEHAVIOUR_RTL]]
-     *               - [[\romkaChev\yii2\swiper\Swiper::BEHAVIOUR_PARALLAX]]
+     *               - [[\bestyii\swiper\Swiper::BEHAVIOUR_PAGINATION]]
+     *               - [[\bestyii\swiper\Swiper::BEHAVIOUR_SCROLLBAR]]
+     *               - [[\bestyii\swiper\Swiper::BEHAVIOUR_NEXT_BUTTON]]
+     *               - [[\bestyii\swiper\Swiper::BEHAVIOUR_PREV_BUTTON]]
+     *               - [[\bestyii\swiper\Swiper::BEHAVIOUR_RTL]]
+     *               - [[\bestyii\swiper\Swiper::BEHAVIOUR_PARALLAX]]
      *
-     * @see \romkaChev\yii2\swiper\Swiper::BEHAVIOUR_PAGINATION
-     * @see \romkaChev\yii2\swiper\Swiper::BEHAVIOUR_SCROLLBAR
-     * @see \romkaChev\yii2\swiper\Swiper::BEHAVIOUR_NEXT_BUTTON
-     * @see \romkaChev\yii2\swiper\Swiper::BEHAVIOUR_PREV_BUTTON
-     * @see \romkaChev\yii2\swiper\Swiper::BEHAVIOUR_RTL
-     * @see \romkaChev\yii2\swiper\Swiper::BEHAVIOUR_PARALLAX
+     * @see \bestyii\swiper\Swiper::BEHAVIOUR_PAGINATION
+     * @see \bestyii\swiper\Swiper::BEHAVIOUR_SCROLLBAR
+     * @see \bestyii\swiper\Swiper::BEHAVIOUR_NEXT_BUTTON
+     * @see \bestyii\swiper\Swiper::BEHAVIOUR_PREV_BUTTON
+     * @see \bestyii\swiper\Swiper::BEHAVIOUR_RTL
+     * @see \bestyii\swiper\Swiper::BEHAVIOUR_PARALLAX
      */
     public $behaviours = [ ];
 
@@ -118,38 +118,38 @@ class Swiper extends Widget
 
 
     /**
-     * Named alias for [[\romkaChev\yii2\swiper\Swiper::$behaviours]] parallax item
+     * Named alias for [[\bestyii\swiper\Swiper::$behaviours]] parallax item
      *
-     * @see \romkaChev\yii2\swiper\Swiper::PARALLAX_BACKGROUND
-     * @see \romkaChev\yii2\swiper\Swiper::PARALLAX_TRANSITION
-     * @see \romkaChev\yii2\swiper\Swiper::PARALLAX_TRANSITION_X
-     * @see \romkaChev\yii2\swiper\Swiper::PARALLAX_TRANSITION_Y
-     * @see \romkaChev\yii2\swiper\Swiper::PARALLAX_DURATION
+     * @see \bestyii\swiper\Swiper::PARALLAX_BACKGROUND
+     * @see \bestyii\swiper\Swiper::PARALLAX_TRANSITION
+     * @see \bestyii\swiper\Swiper::PARALLAX_TRANSITION_X
+     * @see \bestyii\swiper\Swiper::PARALLAX_TRANSITION_Y
+     * @see \bestyii\swiper\Swiper::PARALLAX_DURATION
      *
-     * @see \romkaChev\yii2\swiper\Swiper::$behaviours
-     * @see \romkaChev\yii2\swiper\Swiper::$parallaxOptions
+     * @see \bestyii\swiper\Swiper::$behaviours
+     * @see \bestyii\swiper\Swiper::$parallaxOptions
      *
-     * @see \romkaChev\yii2\swiper\Swiper::renderBehaviourParallax
+     * @see \bestyii\swiper\Swiper::renderBehaviourParallax
      */
     const BEHAVIOUR_PARALLAX = 'parallax';
     /**
-     * @see \romkaChev\yii2\swiper\Swiper::renderBehaviourParallax
+     * @see \bestyii\swiper\Swiper::renderBehaviourParallax
      */
     const PARALLAX_BACKGROUND = 'background';
     /**
-     * @see \romkaChev\yii2\swiper\Swiper::renderBehaviourParallax
+     * @see \bestyii\swiper\Swiper::renderBehaviourParallax
      */
     const PARALLAX_TRANSITION = 'transition';
     /**
-     * @see \romkaChev\yii2\swiper\Swiper::renderBehaviourParallax
+     * @see \bestyii\swiper\Swiper::renderBehaviourParallax
      */
     const PARALLAX_TRANSITION_X = 'transitionX';
     /**
-     * @see \romkaChev\yii2\swiper\Swiper::renderBehaviourParallax
+     * @see \bestyii\swiper\Swiper::renderBehaviourParallax
      */
     const PARALLAX_TRANSITION_Y = 'transitionY';
     /**
-     * @see \romkaChev\yii2\swiper\Swiper::renderBehaviourParallax
+     * @see \bestyii\swiper\Swiper::renderBehaviourParallax
      */
     const PARALLAX_DURATION = 'duration';
     /**
@@ -158,7 +158,7 @@ class Swiper extends Widget
      *
      *               For example:
      *               ~~~
-     *               \romkaChev\yii2\swiper\Swiper::widget([
+     *               \bestyii\swiper\Swiper::widget([
      *                  'items'           => ['slide01', 'slide02'],
      *                  'parallaxOptions' => [
      *                      'background'  => 'http://lorempixel.com/1920/1080/nature/1/',
@@ -170,24 +170,24 @@ class Swiper extends Widget
      *
      * @link http://www.idangero.us/swiper/api/ - Parallax section at the bottom
      *
-     * @see  \romkaChev\yii2\swiper\Swiper::PARALLAX_BACKGROUND
-     * @see  \romkaChev\yii2\swiper\Swiper::PARALLAX_TRANSITION
-     * @see  \romkaChev\yii2\swiper\Swiper::PARALLAX_TRANSITION_X
-     * @see  \romkaChev\yii2\swiper\Swiper::PARALLAX_TRANSITION_Y
-     * @see  \romkaChev\yii2\swiper\Swiper::PARALLAX_DURATION
+     * @see  \bestyii\swiper\Swiper::PARALLAX_BACKGROUND
+     * @see  \bestyii\swiper\Swiper::PARALLAX_TRANSITION
+     * @see  \bestyii\swiper\Swiper::PARALLAX_TRANSITION_X
+     * @see  \bestyii\swiper\Swiper::PARALLAX_TRANSITION_Y
+     * @see  \bestyii\swiper\Swiper::PARALLAX_DURATION
      *
-     * @see  \romkaChev\yii2\swiper\Swiper::renderBehaviourParallax
+     * @see  \bestyii\swiper\Swiper::renderBehaviourParallax
      */
     public $parallaxOptions = [ ];
 
 
     /**
-     * Named alias for [[\romkaChev\yii2\swiper\Swiper::$behaviours]] pagination item
+     * Named alias for [[\bestyii\swiper\Swiper::$behaviours]] pagination item
      *
-     * @see \romkaChev\yii2\swiper\Swiper::$behaviours
-     * @see \romkaChev\yii2\swiper\Swiper::$paginationOptions
+     * @see \bestyii\swiper\Swiper::$behaviours
+     * @see \bestyii\swiper\Swiper::$paginationOptions
      *
-     * @see \romkaChev\yii2\swiper\Swiper::renderBehaviourPagination
+     * @see \bestyii\swiper\Swiper::renderBehaviourPagination
      */
     const BEHAVIOUR_PAGINATION = 'pagination';
     /**
@@ -195,7 +195,7 @@ class Swiper extends Widget
      *              tag rendering in [[\yii\helpers\Html::tag]]
      *
      *              ~~~
-     *               \romkaChev\yii2\swiper\Swiper::widget([
+     *               \bestyii\swiper\Swiper::widget([
      *                  'items'             => ['slide01', 'slide02'],
      *                  'paginationOptions' => [
      *                      'class' => 'swiper-pagination-white',
@@ -207,18 +207,18 @@ class Swiper extends Widget
      *               ]);
      *              ~~~
      *
-     * @see \romkaChev\yii2\swiper\Swiper::$scrollbarOptions
+     * @see \bestyii\swiper\Swiper::$scrollbarOptions
      */
     public $paginationOptions = [ ];
 
 
     /**
-     * Named alias for [[\romkaChev\yii2\swiper\Swiper::$behaviours]] scrollbar item
+     * Named alias for [[\bestyii\swiper\Swiper::$behaviours]] scrollbar item
      *
-     * @see \romkaChev\yii2\swiper\Swiper::$behaviours
-     * @see \romkaChev\yii2\swiper\Swiper::$scrollbarOptions
+     * @see \bestyii\swiper\Swiper::$behaviours
+     * @see \bestyii\swiper\Swiper::$scrollbarOptions
      *
-     * @see \romkaChev\yii2\swiper\Swiper::renderBehaviourScrollbar
+     * @see \bestyii\swiper\Swiper::renderBehaviourScrollbar
      */
     const BEHAVIOUR_SCROLLBAR = 'scrollbar';
     /**
@@ -226,7 +226,7 @@ class Swiper extends Widget
      *              tag rendering in [[\yii\helpers\Html::tag]]
      *
      *              ~~~
-     *               \romkaChev\yii2\swiper\Swiper::widget([
+     *               \bestyii\swiper\Swiper::widget([
      *                  'items'            => ['slide01', 'slide02'],
      *                  'scrollbarOptions' => [
      *                      'class' => 'my-custom-scrollbar-class',
@@ -238,18 +238,18 @@ class Swiper extends Widget
      *               ]);
      *              ~~~
      *
-     * @see \romkaChev\yii2\swiper\Swiper::$paginationOptions
+     * @see \bestyii\swiper\Swiper::$paginationOptions
      */
     public $scrollbarOptions = [ ];
 
 
     /**
-     * Named alias for [[\romkaChev\yii2\swiper\Swiper::$behaviours]] nextButton item
+     * Named alias for [[\bestyii\swiper\Swiper::$behaviours]] nextButton item
      *
-     * @see \romkaChev\yii2\swiper\Swiper::$behaviours
-     * @see \romkaChev\yii2\swiper\Swiper::$nextButtonOptions
+     * @see \bestyii\swiper\Swiper::$behaviours
+     * @see \bestyii\swiper\Swiper::$nextButtonOptions
      *
-     * @see \romkaChev\yii2\swiper\Swiper::renderBehaviourNextButton
+     * @see \bestyii\swiper\Swiper::renderBehaviourNextButton
      */
     const BEHAVIOUR_NEXT_BUTTON = 'nextButton';
     /**
@@ -257,7 +257,7 @@ class Swiper extends Widget
      *              tag rendering in [[\yii\helpers\Html::tag]]
      *
      *              ~~~
-     *               \romkaChev\yii2\swiper\Swiper::widget([
+     *               \bestyii\swiper\Swiper::widget([
      *                  'items'             => ['slide01', 'slide02'],
      *                  'nextButtonOptions' => [
      *                      'class' => 'my-custom-next-button-class',
@@ -269,18 +269,18 @@ class Swiper extends Widget
      *               ]);
      *              ~~~
      *
-     * @see \romkaChev\yii2\swiper\Swiper::$prevButtonOptions
+     * @see \bestyii\swiper\Swiper::$prevButtonOptions
      */
     public $nextButtonOptions = [ ];
 
 
     /**
-     * Named alias for [[\romkaChev\yii2\swiper\Swiper::$behaviours]] prevButton item
+     * Named alias for [[\bestyii\swiper\Swiper::$behaviours]] prevButton item
      *
-     * @see \romkaChev\yii2\swiper\Swiper::$behaviours
-     * @see \romkaChev\yii2\swiper\Swiper::$prevButtonOptions
+     * @see \bestyii\swiper\Swiper::$behaviours
+     * @see \bestyii\swiper\Swiper::$prevButtonOptions
      *
-     * @see \romkaChev\yii2\swiper\Swiper::renderBehaviourPrevButton
+     * @see \bestyii\swiper\Swiper::renderBehaviourPrevButton
      */
     const BEHAVIOUR_PREV_BUTTON = 'prevButton';
     /**
@@ -288,7 +288,7 @@ class Swiper extends Widget
      *              tag rendering in [[\yii\helpers\Html::tag]]
      *
      *              ~~~
-     *               \romkaChev\yii2\swiper\Swiper::widget([
+     *               \bestyii\swiper\Swiper::widget([
      *                  'items'             => ['slide01', 'slide02'],
      *                  'nextButtonOptions' => [
      *                      'class' => 'my-custom-prev-button-class',
@@ -300,30 +300,30 @@ class Swiper extends Widget
      *               ]);
      *              ~~~
      *
-     * @see \romkaChev\yii2\swiper\Swiper::$nextButtonOptions
+     * @see \bestyii\swiper\Swiper::$nextButtonOptions
      */
     public $prevButtonOptions = [ ];
 
 
     /**
-     * Named alias for [[\romkaChev\yii2\swiper\Swiper::$behaviours]] rtl item
+     * Named alias for [[\bestyii\swiper\Swiper::$behaviours]] rtl item
      *
-     * @see \romkaChev\yii2\swiper\Swiper::$behaviours
+     * @see \bestyii\swiper\Swiper::$behaviours
      *
-     * @see \romkaChev\yii2\swiper\Swiper::setBehaviourRtl
+     * @see \bestyii\swiper\Swiper::setBehaviourRtl
      */
     const BEHAVIOUR_RTL = 'rtl';
 
 
     /**
-     * This function is batch-wrapper of \romkaChev\yii2\swiper\Swiper::addItem
+     * This function is batch-wrapper of \bestyii\swiper\Swiper::addItem
      *
      * @param string[]|mixed[][]|Slide[] $items batch of items
      *                                          to be added into slider
      *
-     * @see \romkaChev\yii2\swiper\Swiper::addItem
-     * @see \romkaChev\yii2\swiper\Swiper::$items
-     * @see \romkaChev\yii2\swiper\Slide
+     * @see \bestyii\swiper\Swiper::addItem
+     * @see \bestyii\swiper\Swiper::$items
+     * @see \bestyii\swiper\Slide
      *
      * @return Swiper
      */
@@ -341,14 +341,14 @@ class Swiper extends Widget
      * you should use this instead of direct items pushing to collection,
      * because it supports configuring slides from strings and arrays.
      *
-     * Also it merges [[\romkaChev\yii2\swiper\Swiper::$itemOptions]]
+     * Also it merges [[\bestyii\swiper\Swiper::$itemOptions]]
      * with concrete item options.
      *
      * @param string|mixed[]|Slide $item The content, or configuration,
-     *                                   or [[\romkaChev\yii2\swiper\Slide]] itself.
+     *                                   or [[\bestyii\swiper\Slide]] itself.
      *
-     * @see \romkaChev\yii2\swiper\Swiper::$items
-     * @see \romkaChev\yii2\swiper\Slide
+     * @see \bestyii\swiper\Swiper::$items
+     * @see \bestyii\swiper\Slide
      *
      * @return Swiper
      */
@@ -388,10 +388,10 @@ class Swiper extends Widget
      * This function check if there is wrong behaviours
      * and call normalizing of items and every options
      *
-     * @see \romkaChev\yii2\swiper\Swiper::checkBehaviours
+     * @see \bestyii\swiper\Swiper::checkBehaviours
      *
-     * @see \romkaChev\yii2\swiper\Swiper::normalizeOptions
-     * @see \romkaChev\yii2\swiper\Swiper::normalizeItems
+     * @see \bestyii\swiper\Swiper::normalizeOptions
+     * @see \bestyii\swiper\Swiper::normalizeItems
      */
     public function init()
     {
@@ -405,14 +405,14 @@ class Swiper extends Widget
      * This function sets default values to options of widget
      * such as [[id]] and [[class]]
      *
-     * @see \romkaChev\yii2\swiper\Swiper::$containerOptions
-     * @see \romkaChev\yii2\swiper\Swiper::$wrapperOptions
-     * @see \romkaChev\yii2\swiper\Swiper::$paginationOptions
-     * @see \romkaChev\yii2\swiper\Swiper::$scrollbarOptions
-     * @see \romkaChev\yii2\swiper\Swiper::$nextButtonOptions
-     * @see \romkaChev\yii2\swiper\Swiper::$prevButtonOptions
-     * @see \romkaChev\yii2\swiper\Swiper::$parallaxOptions
-     * @see \romkaChev\yii2\swiper\Swiper::$itemOptions
+     * @see \bestyii\swiper\Swiper::$containerOptions
+     * @see \bestyii\swiper\Swiper::$wrapperOptions
+     * @see \bestyii\swiper\Swiper::$paginationOptions
+     * @see \bestyii\swiper\Swiper::$scrollbarOptions
+     * @see \bestyii\swiper\Swiper::$nextButtonOptions
+     * @see \bestyii\swiper\Swiper::$prevButtonOptions
+     * @see \bestyii\swiper\Swiper::$parallaxOptions
+     * @see \bestyii\swiper\Swiper::$itemOptions
      */
     protected function normalizeOptions()
     {
@@ -481,10 +481,10 @@ class Swiper extends Widget
     }
 
     /**
-     * This function converts non-[[\romkaChev\yii2\swiper\Slide]] items
-     * to [[\romkaChev\yii2\swiper\Slide]] respectively
+     * This function converts non-[[\bestyii\swiper\Slide]] items
+     * to [[\bestyii\swiper\Slide]] respectively
      *
-     * Then it merges [[\romkaChev\yii2\swiper\Swiper::$itemOptions]] with
+     * Then it merges [[\bestyii\swiper\Swiper::$itemOptions]] with
      * concrete item options
      *
      */
@@ -496,8 +496,8 @@ class Swiper extends Widget
     }
 
     /**
-     * This function converts non-[[\romkaChev\yii2\swiper\Slide]] item
-     * to [[\romkaChev\yii2\swiper\Slide]], merging batch options,
+     * This function converts non-[[\bestyii\swiper\Slide]] item
+     * to [[\bestyii\swiper\Slide]], merging batch options,
      * automatically sets id and class and so on...
      *
      * @param string|mixed[]|Slide $item
@@ -508,7 +508,7 @@ class Swiper extends Widget
     protected function normalizeItem( $item, $index )
     {
         /**
-         * If concrete \romkaChev\yii2\swiper\Slide given
+         * If concrete \bestyii\swiper\Slide given
          * then it is meant to be fully custom-configured
          * and it will not be managed there.
          */
@@ -569,13 +569,13 @@ class Swiper extends Widget
      *
      * @link http://www.idangero.us/swiper/api/ - Parallax section at the bottom
      *
-     * @see  \romkaChev\yii2\swiper\Swiper::PARALLAX_BACKGROUND
-     * @see  \romkaChev\yii2\swiper\Swiper::PARALLAX_TRANSITION
-     * @see  \romkaChev\yii2\swiper\Swiper::PARALLAX_TRANSITION_X
-     * @see  \romkaChev\yii2\swiper\Swiper::PARALLAX_TRANSITION_Y
-     * @see  \romkaChev\yii2\swiper\Swiper::PARALLAX_DURATION
+     * @see  \bestyii\swiper\Swiper::PARALLAX_BACKGROUND
+     * @see  \bestyii\swiper\Swiper::PARALLAX_TRANSITION
+     * @see  \bestyii\swiper\Swiper::PARALLAX_TRANSITION_X
+     * @see  \bestyii\swiper\Swiper::PARALLAX_TRANSITION_Y
+     * @see  \bestyii\swiper\Swiper::PARALLAX_DURATION
      *
-     * @see  \romkaChev\yii2\swiper\Swiper::$parallaxOptions
+     * @see  \bestyii\swiper\Swiper::$parallaxOptions
      *
      * @return string
      */
@@ -605,10 +605,10 @@ class Swiper extends Widget
      *
      * Also you can find some examples in [[~/yii2-swiper/demos]] folder
      *
-     * @see \romkaChev\yii2\swiper\Swiper::BEHAVIOUR_PAGINATION
-     * @see \romkaChev\yii2\swiper\Swiper::$paginationOptions
+     * @see \bestyii\swiper\Swiper::BEHAVIOUR_PAGINATION
+     * @see \bestyii\swiper\Swiper::$paginationOptions
      *
-     * @see \romkaChev\yii2\swiper\Swiper::renderBehaviourScrollbar
+     * @see \bestyii\swiper\Swiper::renderBehaviourScrollbar
      *
      * @return string
      */
@@ -636,10 +636,10 @@ class Swiper extends Widget
      *
      * Also you can find some examples in [[~/yii2-swiper/demos]] folder
      *
-     * @see \romkaChev\yii2\swiper\Swiper::BEHAVIOUR_SCROLLBAR
-     * @see \romkaChev\yii2\swiper\Swiper::$scrollbarOptions
+     * @see \bestyii\swiper\Swiper::BEHAVIOUR_SCROLLBAR
+     * @see \bestyii\swiper\Swiper::$scrollbarOptions
      *
-     * @see \romkaChev\yii2\swiper\Swiper::renderBehaviourPagination
+     * @see \bestyii\swiper\Swiper::renderBehaviourPagination
      *
      * @return string
      */
@@ -668,10 +668,10 @@ class Swiper extends Widget
      *
      * Also you can find some examples in [[~/yii2-swiper/demos]] folder
      *
-     * @see \romkaChev\yii2\swiper\Swiper::BEHAVIOUR_NEXT_BUTTON
-     * @see \romkaChev\yii2\swiper\Swiper::$nextButtonOptions
+     * @see \bestyii\swiper\Swiper::BEHAVIOUR_NEXT_BUTTON
+     * @see \bestyii\swiper\Swiper::$nextButtonOptions
      *
-     * @see \romkaChev\yii2\swiper\Swiper::renderBehaviourPrevButton
+     * @see \bestyii\swiper\Swiper::renderBehaviourPrevButton
      *
      * @return string
      */
@@ -700,10 +700,10 @@ class Swiper extends Widget
      *
      * Also you can find some examples in [[~/yii2-swiper/demos]] folder
      *
-     * @see \romkaChev\yii2\swiper\Swiper::BEHAVIOUR_PREV_BUTTON
-     * @see \romkaChev\yii2\swiper\Swiper::$prevButtonOptions
+     * @see \bestyii\swiper\Swiper::BEHAVIOUR_PREV_BUTTON
+     * @see \bestyii\swiper\Swiper::$prevButtonOptions
      *
-     * @see \romkaChev\yii2\swiper\Swiper::renderBehaviourNextButton
+     * @see \bestyii\swiper\Swiper::renderBehaviourNextButton
      *
      * @return string
      */
@@ -725,14 +725,14 @@ class Swiper extends Widget
     }
 
     /**
-     * This function adds [[dir=rtl]] tag option to [[\romkaChev\yii2\swiper\Swiper::$containerOptions]]
+     * This function adds [[dir=rtl]] tag option to [[\bestyii\swiper\Swiper::$containerOptions]]
      *
      * More information about rtl you can find
      * in official site of plugin - http://www.idangero.us/swiper/api/
      *
      * Also you can find some examples in [[~/yii2-swiper/demos]] folder
      *
-     * @see \romkaChev\yii2\swiper\Swiper::BEHAVIOUR_RTL
+     * @see \bestyii\swiper\Swiper::BEHAVIOUR_RTL
      *
      * @return Swiper
      */
@@ -749,8 +749,8 @@ class Swiper extends Widget
      * This function renders the wrapper tag of swiper,
      * which contains slides
      *
-     * @see \romkaChev\yii2\swiper\Swiper::$wrapperOptions
-     * @see \romkaChev\yii2\swiper\Swiper::renderItems
+     * @see \bestyii\swiper\Swiper::$wrapperOptions
+     * @see \bestyii\swiper\Swiper::renderItems
      *
      * @return string
      */
@@ -766,8 +766,8 @@ class Swiper extends Widget
     }
 
     /**
-     * This function just calls [[\romkaChev\yii2\swiper\Swiper::renderItem]]
-     * for each [[\romkaChev\yii2\swiper\Swiper::$items]] and returns
+     * This function just calls [[\bestyii\swiper\Swiper::renderItem]]
+     * for each [[\bestyii\swiper\Swiper::$items]] and returns
      * formatter result
      *
      * @param Slide[] $items
@@ -787,8 +787,8 @@ class Swiper extends Widget
     /**
      * @param Slide $slide
      *
-     * @see \romkaChev\yii2\swiper\Swiper::$items
-     * @see \romkaChev\yii2\swiper\Swiper::$itemOptions
+     * @see \bestyii\swiper\Swiper::$items
+     * @see \bestyii\swiper\Swiper::$itemOptions
      *
      * @return string
      */
@@ -803,7 +803,7 @@ class Swiper extends Widget
     /**
      * Registers the initializer of Swiper plugin
      *
-     * @see \romkaChev\yii2\swiper\Swiper::$pluginOptions
+     * @see \bestyii\swiper\Swiper::$pluginOptions
      * @return Swiper
      */
     protected function registerClientScript()
@@ -958,69 +958,69 @@ JS
 
     /**
      * Named alias for [[direction]] option
-     * in [[\romkaChev\yii2\swiper\Swiper::$pluginOptions]]
+     * in [[\bestyii\swiper\Swiper::$pluginOptions]]
      *
-     * @see \romkaChev\yii2\swiper\Swiper::OPTION_DIRECTION
-     * @see \romkaChev\yii2\swiper\Swiper::$pluginOptions
+     * @see \bestyii\swiper\Swiper::OPTION_DIRECTION
+     * @see \bestyii\swiper\Swiper::$pluginOptions
      */
     const DIRECTION_HORIZONTAL = 'horizontal';
     /**
      * Named alias for [[direction]] option
-     * in [[\romkaChev\yii2\swiper\Swiper::$pluginOptions]]
+     * in [[\bestyii\swiper\Swiper::$pluginOptions]]
      *
-     * @see \romkaChev\yii2\swiper\Swiper::OPTION_DIRECTION
-     * @see \romkaChev\yii2\swiper\Swiper::$pluginOptions
+     * @see \bestyii\swiper\Swiper::OPTION_DIRECTION
+     * @see \bestyii\swiper\Swiper::$pluginOptions
      */
     const DIRECTION_VERTICAL = 'vertical';
 
     /**
      * Named alias for [[effect]] option
-     * in [[\romkaChev\yii2\swiper\Swiper::$pluginOptions]]
+     * in [[\bestyii\swiper\Swiper::$pluginOptions]]
      *
-     * @see \romkaChev\yii2\swiper\Swiper::OPTION_EFFECT
-     * @see \romkaChev\yii2\swiper\Swiper::$pluginOptions
+     * @see \bestyii\swiper\Swiper::OPTION_EFFECT
+     * @see \bestyii\swiper\Swiper::$pluginOptions
      */
     const EFFECT_FADE = 'fade';
     /**
      * Named alias for [[effect]] option
-     * in [[\romkaChev\yii2\swiper\Swiper::$pluginOptions]]
+     * in [[\bestyii\swiper\Swiper::$pluginOptions]]
      *
-     * @see \romkaChev\yii2\swiper\Swiper::OPTION_EFFECT
-     * @see \romkaChev\yii2\swiper\Swiper::$pluginOptions
+     * @see \bestyii\swiper\Swiper::OPTION_EFFECT
+     * @see \bestyii\swiper\Swiper::$pluginOptions
      */
     const EFFECT_CUBE = 'cube';
     /**
      * Named alias for [[effect]] option
-     * in [[\romkaChev\yii2\swiper\Swiper::$pluginOptions]]
+     * in [[\bestyii\swiper\Swiper::$pluginOptions]]
      *
-     * @see \romkaChev\yii2\swiper\Swiper::OPTION_EFFECT
-     * @see \romkaChev\yii2\swiper\Swiper::$pluginOptions
+     * @see \bestyii\swiper\Swiper::OPTION_EFFECT
+     * @see \bestyii\swiper\Swiper::$pluginOptions
      */
     const EFFECT_COVERFLOW = 'coverflow';
 
     /**
      * Named alias for [[slidesPerView]] option
-     * in [[\romkaChev\yii2\swiper\Swiper::$pluginOptions]]
+     * in [[\bestyii\swiper\Swiper::$pluginOptions]]
      *
-     * @see \romkaChev\yii2\swiper\Swiper::OPTION_SLIDES_PER_VIEW
-     * @see \romkaChev\yii2\swiper\Swiper::$pluginOptions
+     * @see \bestyii\swiper\Swiper::OPTION_SLIDES_PER_VIEW
+     * @see \bestyii\swiper\Swiper::$pluginOptions
      */
     const SLIDES_PER_VIEW_AUTO = 'auto';
 
     /**
      * Named alias for [[slidesPerColumnFill]] option
-     * in [[\romkaChev\yii2\swiper\Swiper::$pluginOptions]]
+     * in [[\bestyii\swiper\Swiper::$pluginOptions]]
      *
-     * @see \romkaChev\yii2\swiper\Swiper::OPTION_SLIDES_PER_COLUMN_FILL
-     * @see \romkaChev\yii2\swiper\Swiper::$pluginOptions
+     * @see \bestyii\swiper\Swiper::OPTION_SLIDES_PER_COLUMN_FILL
+     * @see \bestyii\swiper\Swiper::$pluginOptions
      */
     const SLIDES_PER_COLUMN_FILL_COLUMN = 'column';
     /**
      * Named alias for [[slidesPerColumnFill]] option
-     * in [[\romkaChev\yii2\swiper\Swiper::$pluginOptions]]
+     * in [[\bestyii\swiper\Swiper::$pluginOptions]]
      *
-     * @see \romkaChev\yii2\swiper\Swiper::OPTION_SLIDES_PER_COLUMN_FILL
-     * @see \romkaChev\yii2\swiper\Swiper::$pluginOptions
+     * @see \bestyii\swiper\Swiper::OPTION_SLIDES_PER_COLUMN_FILL
+     * @see \bestyii\swiper\Swiper::$pluginOptions
      */
     const SLIDES_PER_COLUMN_FILL_ROW = 'row';
 

@@ -1,9 +1,9 @@
 # Aliases
 
-For work with classes `\romkaChev\yii2\swiper\Swiper` and `\romkaChev\yii2\swiper\Slide` were introduced aliases
+For work with classes `\bestyii\swiper\Swiper` and `\bestyii\swiper\Slide` were introduced aliases
 for quick and easy work.
 
-### \romkaChev\yii2\swiper\Swiper
+### \bestyii\swiper\Swiper
 
 | Alias         | Constant                | What replaces                                                     |
 |---------------|-------------------------|-------------------------------------------------------------------|
@@ -17,7 +17,7 @@ Example of usage:
 
 ```PHP
 <?php
-use romkaChev\yii2\swiper\Swiper;
+use bestyii\swiper\Swiper;
 
 echo Swiper::widget( [
   'items'       => [
@@ -69,7 +69,7 @@ echo Swiper::widget( [
 ] );
 ```
 
-### \romkaChev\yii2\swiper\Slide
+### \bestyii\swiper\Slide
 
 | Alias        | Constant     | What replaces                                            |
 |--------------|--------------|----------------------------------------------------------|
@@ -80,7 +80,7 @@ Example of usage:
 
 ```PHP
 <?php
-use romkaChev\yii2\swiper\Swiper;
+use bestyii\swiper\Swiper;
 
 $slide = new Slide( [
   'background' => 'http://placehold.it/800x600',
@@ -111,7 +111,7 @@ Note that aliases operate in **both directions** immediately after the creation 
 
 ```PHP
 <?php
-use \romkaChev\yii2\swiper\Slide;
+use \bestyii\swiper\Slide;
 
 $slide = new Slide([
   'background' => 'http://placehold.it/800x600',
@@ -130,7 +130,7 @@ echo $slide->options['data']['hash']; // slide01
 
 ```PHP
 <?php
-use \romkaChev\yii2\swiper\Slide;
+use \bestyii\swiper\Slide;
 
 $slide = new Slide([
   'options' => [

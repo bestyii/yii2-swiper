@@ -1,10 +1,10 @@
 <?php
-namespace romkaChev\yii2\swiper\tests\unit\swiper;
+namespace bestyii\swiper\tests\unit\swiper;
 
 
-use romkaChev\yii2\swiper\Slide;
-use romkaChev\yii2\swiper\Swiper;
-use romkaChev\yii2\swiper\tests\unit\BaseTestCase;
+use bestyii\swiper\Slide;
+use bestyii\swiper\Swiper;
+use bestyii\swiper\tests\unit\BaseTestCase;
 
 class SwiperTest extends BaseTestCase
 {
@@ -94,7 +94,7 @@ class SwiperTest extends BaseTestCase
         $swiper->items[] = 'badValue';
         $swiper->items[] = [ 'content' => 'slide 02' ];
 
-        $this->setExpectedException( 'yii\base\ErrorException', 'must be an instance of romkaChev\yii2\swiper\Slide' );
+        $this->setExpectedException( 'yii\base\ErrorException', 'must be an instance of bestyii\swiper\Slide' );
 
         $swiper->run();
     }

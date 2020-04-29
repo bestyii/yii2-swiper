@@ -1,7 +1,7 @@
 <?php
-namespace romkaChev\yii2\swiper;
+namespace bestyii\swiper;
 
-use romkaChev\yii2\swiper\helpers\SwiperCssHelper;
+use bestyii\swiper\helpers\SwiperCssHelper;
 use yii\base\BaseObject;
 use yii\helpers\ArrayHelper;
 
@@ -10,21 +10,21 @@ use yii\helpers\ArrayHelper;
  * Do not use it directly if you don't really know what
  * you are doing.
  *
- * @package romkaChev\yii2\swiper
+ * @package bestyii\swiper
  */
 class Slide extends BaseObject
 {
 
     /**
-     * @see \romkaChev\yii2\swiper\Slide::$content
+     * @see \bestyii\swiper\Slide::$content
      */
     const CONTENT = 'content';
     /**
-     * @see \romkaChev\yii2\swiper\Slide::$background
+     * @see \bestyii\swiper\Slide::$background
      */
     const BACKGROUND = 'background';
     /**
-     * @see \romkaChev\yii2\swiper\Slide::$hash
+     * @see \bestyii\swiper\Slide::$hash
      */
     const HASH = 'hash';
 
@@ -49,18 +49,18 @@ class Slide extends BaseObject
     /**
      * @var mixed[] options, which will be applied in [[\yii\helpers\Html::tag()]]
      *
-     * @see \romkaChev\yii2\swiper\Slide::$background
-     * @see \romkaChev\yii2\swiper\Slide::$hash
+     * @see \bestyii\swiper\Slide::$background
+     * @see \bestyii\swiper\Slide::$hash
      */
     public $options = [ ];
 
     /**
-     * @param string|mixed[] $config the configuration of [[\romkaChev\yii2\swiper\Slide]]
+     * @param string|mixed[] $config the configuration of [[\bestyii\swiper\Slide]]
      *                               You can create slide just from string
      *                               For example:
      *
      *                               ~~~
-     *                                 $slide = new \romkaChev\yii2\swiper\Slide('slide content');
+     *                                 $slide = new \bestyii\swiper\Slide('slide content');
      *                               ~~~
      *
      *
@@ -69,7 +69,7 @@ class Slide extends BaseObject
      *                               For example:
      *
      *                               ~~~
-     *                                $slide = new \romkaChev\yii2\swiper\Slide([
+     *                                $slide = new \bestyii\swiper\Slide([
      *                                    'content' => [
      *                                        '<h1>Title</h1>',
      *                                        '<h3>Subtitle</h3>',
@@ -78,9 +78,9 @@ class Slide extends BaseObject
      *                                ]);
      *                               ~~~
      *
-     * @see \romkaChev\yii2\swiper\Slide::$background
-     * @see \romkaChev\yii2\swiper\Slide::$hash
-     * @see \romkaChev\yii2\swiper\Slide::$content
+     * @see \bestyii\swiper\Slide::$background
+     * @see \bestyii\swiper\Slide::$hash
+     * @see \bestyii\swiper\Slide::$content
      */
     public function __construct( $config = [ ] )
     {
