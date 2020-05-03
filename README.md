@@ -17,10 +17,6 @@ Before install config composer repositories
     "0": {
       "type": "composer",
       "url": "https://asset-packagist.org"
-    },
-    "github": {
-      "type": "vcs",
-      "url": "https://github.com/GrazioX/yii2-swiper"
     }
   }
 ```
@@ -28,13 +24,13 @@ Before install config composer repositories
 Either run in terminal
  
 ```Shell
-$ php composer.phar require "romka-chev/yii2-swiper" "*"
+$ php composer.phar require "bestyii/yii2-swiper" "*"
 ```
  
 or add
  
 ```JSON
-"romka-chev/yii2-swiper" : "*"
+"bestyii/yii2-swiper" : "*"
 ```
  
 to the *require* section of your application's ```composer.json``` file.
@@ -79,6 +75,6 @@ echo Swiper::widget( [
 
 ## Issues
 
-If some problems occurred, you can create [issue](https://github.com/romka-chev/yii2-swiper/issues).
+If some problems occurred, you can create [issue](https://github.com/bestyii/yii2-swiper/issues).
 
 Thank you for attention.
